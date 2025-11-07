@@ -1,0 +1,731 @@
+:root {
+    --color-primary: #1D2432;
+    --color-secondary: #C1B9C0;
+    --color-third: #FAFAFA;
+    --color-blur-bg: rgba(29, 36, 50, 0.3);
+    --shadow-soft: 0 6px 16px rgba(29, 36, 50, 0.4);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    overflow-x: clip;
+    max-width: 100%;
+}
+
+body {
+    color: var(--color-primary);
+    text-align: justify;
+    font-family: Geologica, sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+h1, h2, h3, h4, h5, h6, p, li {
+    color: var(--color-primary);
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+main {
+    background: var(--color-secondary);
+    flex: 1;
+    padding: 15vh 0vw 15vh;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+}
+
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    width: 80px;
+    height: 80px;
+    background-image: url('Images/бургер.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    position: absolute;
+    left: 70%;
+    top: 50%;
+    transform: translate(-40%, -50%);
+    z-index: 1001;
+}
+
+/* ---------------------------------------- */
+
+header {
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-content {
+    width: 70%;
+    height: 80px;
+    min-width: 500px; 
+    backdrop-filter: blur(10px); 
+    background: var(--color-blur-bg); 
+    border-radius: 50px;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+}
+
+.nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    position: relative;
+    z-index: 2;
+    padding: 0 0; 
+    width: 100%; 
+    gap: 5rem; 
+    margin: 0;
+}
+
+.nav-content li {
+    display: flex;
+    align-items: center; 
+}
+
+.nav-content li:first-child {
+    flex: 0 0 auto; 
+    justify-content: flex-start;
+}
+
+.nav-content li:nth-child(2) {
+    flex: 1 1 auto; 
+    justify-content: center; 
+    position: relative; 
+}
+
+.nav-content li.right-nav {
+    flex: 0 0 auto;
+    justify-content: flex-end;
+    gap: 2rem; 
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+     transform: translateY(1.25rem);
+}
+
+nav ul {
+    list-style: none;
+    align-items: center;
+    width: 100%; 
+    position: relative; 
+    min-height: 60px; 
+    margin: 0; 
+    padding: 0;
+}
+
+nav a {
+    color: var(--color-primary);
+    text-decoration: none; 
+    transition: color 0.3s;
+    padding: 0.5rem 1rem;
+}
+
+.logo-link:hover .logo {
+    filter: brightness(0) invert(1);
+    transition: all 0.3s ease;
+}
+
+nav a:hover{
+    color: var(--color-third);
+}
+
+.header-fluffies-container {
+    overflow: visible;
+    width: 100%;
+    height: 0; 
+    z-index: 50;
+}
+
+.header-fluffy {
+    position: absolute;
+    background-image: url('Images/пушистик.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.header-fluffy:first-child { 
+    width: 100vw; 
+    height: 400px; 
+    left: 0%; 
+    top: -80px;
+    background-image: 
+        url('Images/пушистик.png'),
+        url('Images/пушистик.png'),
+        url('Images/пушистик.png'),
+        url('Images/пушистик.png');
+    background-size: 300px 300px;
+    background-repeat: repeat-x;
+    background-position: 
+        0% 0%,
+        10% 45%,
+        45% 15%,
+        95% 25%;
+    border-radius: 0;
+    padding: 0;
+}
+
+/* ---------------------------------------- */
+
+.hero-subtitle {
+    color: var(--color-secondary); 
+    backdrop-filter: blur(10px); 
+    background: var(--color-blur-bg); 
+    border-radius: 50px; 
+    padding: 2rem 3rem; 
+    text-align: center; 
+    line-height: 1.6; 
+    font-size: 1.1rem; 
+    max-width: 800px; 
+    margin: 3rem auto; 
+    position: relative; 
+}
+
+/* ---------------------------------------- */
+
+footer {
+    background: var(--color-third);
+    color: var(--color-primary);
+    text-align: center;
+    padding: 3rem 0;
+    margin-top: auto;
+    position: relative;
+    min-height: 300px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    padding: 2rem 0;
+    z-index: 2;
+    gap: 8rem;
+    width: 100%;
+    margin-top: 5em;
+}
+
+.footer-content p {
+    transform: translateY(-80%); 
+}
+
+.footer-transition {
+    position: absolute;
+    overflow: visible;
+    width: 100%;
+    height: 0; 
+    z-index: 50;
+}
+
+.fluffy-element {
+    position: absolute;
+    background-image: url('Images/пушистик.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.fluffy-element:first-child { 
+    width: 100vw; 
+    height: 300px; 
+    left: 0%; 
+    top: -16em;
+    background-image: 
+        url('Images/пушистик.png'),
+        url('Images/пушистик.png'),
+        url('Images/пушистик.png'),
+        url('Images/пушистик.png');
+    background-size: 150px 150px;
+    background-repeat: repeat-x;
+    background-position: 
+        0% 10%,
+        15% 25%,
+        45% 15%,
+        85% 20%;
+    border-radius: 0;
+    padding: 0;
+}
+
+/* ---------------------------------------- */
+
+.logo {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    display: inline-block;
+}
+
+.logo::before {
+    content: '';
+    position: absolute;
+    width: 28%;
+    height: 28%;
+    left: 0;
+    bottom: 50%;
+    border: 0.65rem solid var(--color-primary);
+    border-radius: 50%;
+    border-top-color: transparent;
+    transform: rotate(45deg);
+}
+
+.logo::after {
+    content: '';
+    position: absolute;
+    width: 25%;
+    height: 0.1rem;
+    background: var(--color-primary);
+    left: 27%;
+    top: 19%;
+    transform: translateY(200%);
+}
+
+.logo .letter-v-container {
+    position: absolute;
+    left: 105%; 
+    top: 0; 
+    width: 1.8rem;
+    height: 50%;
+}
+
+.logo .letter-v-container::before {
+    content: '';
+    position: absolute;
+    width: 0.65rem; 
+    height: 100%;
+    background: var(--color-primary);
+    right: 65%;
+    bottom: 0; 
+    transform: skewX(20deg); 
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.logo .letter-v-container::after {
+    content: '';
+    position: absolute;
+    width: 0.2rem; 
+    height: 100%;
+    background: var(--color-primary);
+    right: 10%;
+    bottom: 0; 
+    transform: skewX(-20deg); 
+    clip-path: polygon(30% 0, 100% 0, 70% 100%, 0 100%); 
+} 
+
+.paw-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.paw-container .paw-main{
+    content: '';
+    position: absolute;
+    width: 70%;
+    height: 70%;
+    left: 46%;
+    bottom: 25%;
+    background: var(--color-primary);
+    clip-path: polygon(52% 20%, 42% 20%, 38% 22%, 
+    36% 26%, 32% 34%, 26% 38%, 
+    20% 40%, 16% 44%, 14% 50%, 14% 56%, 18% 62%, 26% 64%, 34% 62%, 36% 60%, 40% 56%, 
+    42% 50%, 46% 46%, 48% 46%, 52% 50%, 
+    54% 56%, 58% 60%, 60% 62%, 68% 64%, 74% 62%, 78% 56%, 78% 50%, 76% 44%, 72% 40%,
+    68% 38%, 62% 34%, 58% 26%, 
+    56% 22%);
+}
+
+.paw-container::before {
+    content: '';
+    position: absolute;
+    width: 26%;
+    height: 26%;
+    left: 49%;
+    top: 8%;
+    background: var(--color-primary);
+    clip-path: polygon(46% 19%, 31% 17%, 21% 27%, 
+    17% 38%, 20% 53%, 27% 70%, 
+    42% 82%, 56% 83%, 67% 75%, 
+    73% 64%, 73% 52%, 66% 41%);
+}
+
+.paw-container::after {
+    content: '';
+    position: absolute;
+    width: 24%;
+    height: 23%;
+    left: 59%;
+    bottom: 79%;
+    background: var(--color-primary);
+   clip-path: polygon(60% 14%, 46% 10%, 33% 19%, 
+   23% 34%, 20% 50%, 21% 64%, 
+   31% 79%, 44% 91%, 57% 92%, 
+   72% 79%, 75% 63%);
+} 
+
+.paw-right{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.paw-right::before {
+    content: '';
+    position: absolute;
+    width: 24%;
+    height: 23%;
+    left: 70%;
+    bottom: 79%;
+    background: var(--color-primary);
+    clip-path: polygon(70% 19%, 52% 11%, 40% 18%, 
+    35% 67%, 43% 79%, 55% 88%, 
+    68% 86%, 77% 79%, 
+    84% 62%, 84% 47%, 79% 35%);
+}
+
+.paw-right::after {
+    content: '';
+    position: absolute;
+    width: 22%;
+    height: 23%;
+    left: 82%;
+    bottom: 68%;
+    background: var(--color-primary);
+    clip-path: polygon(64% 14%, 49% 9%, 42% 15%, 44% 26%, 
+    30% 53%, 30% 68%, 42% 81%, 
+    66% 84%, 82% 69%, 84% 50%, 78% 29%);
+}  
+
+/* ---------------------------------------- */
+
+.project-number {
+    margin-top: 1em;
+    text-align: left;
+    padding-left: 28vw;
+}
+
+.project-title {
+    text-align: left;
+    padding-left: 32vw; 
+}
+
+.project-number-2 {
+    margin-top: 1em;
+    text-align: left;
+    padding-left: 15vw;
+}
+
+.project-title-2 {
+    text-align: left;
+    padding-left: 25vw; 
+}
+
+/* ---------------------------------------- */
+
+.scroll-to-top {
+    position: fixed;
+    bottom: 40px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    backdrop-filter: blur(10px);
+    background: var(--color-blur-bg);
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('Images/курсор.png');
+    background-size: 30px 30px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.scroll-to-top:hover {
+    background-color: rgba(29, 36, 50, 0.5);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(29, 36, 50, 0.4);
+}
+
+.scroll-to-top:active {
+    transform: translateY(0);
+}
+
+.scroll-to-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ---------------------------------------- */
+@media (min-width: 1200px) {
+    p {
+        font-size: 1.1rem;
+        line-height: 1.7;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.2rem;
+        line-height: 1.7;
+    }
+    
+    .principles-grid p {
+        font-size: 1.1rem;
+    }
+    .footer-content p {
+        transform: translateY(-40%) !important;
+    }
+}
+
+@media (min-width: 1400px) {
+    p {
+        font-size: 1.15rem;
+        line-height: 1.75;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.25rem;
+        line-height: 1.75;
+    }
+    
+    .principles-grid p {
+        font-size: 1.15rem;
+    }
+}
+
+@media (max-width: 1250px) {
+    .container {
+        padding: 0 40px;
+    }
+}
+
+
+@media (min-width: 800px) {
+    .mobile-menu-btn, .mobile-menu-overlay {
+        display: none !important;
+    }
+}
+
+@media (max-width: 800px) {
+
+    .container {
+        padding: 0 6vw;
+    }
+    
+    .header-content {
+        min-width: unset;
+        padding: 0 1rem;
+    }
+    
+    .nav-content {
+        gap: 0;
+        justify-content: space-between;
+    }
+    
+    .nav-content li:first-child,
+    .nav-content li.right-nav {
+        display: none;
+    }
+
+    .logo{
+        transform: translateX(-70%);
+        position: relative;
+        z-index: 100;
+    }
+
+   .mobile-menu-btn {
+        display: block;
+    }
+    
+    .mobile-menu-btn:hover {
+    filter: brightness(0) invert(1); 
+    transition: all 0.3s ease;
+}
+
+    .mobile-menu-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        backdrop-filter: blur(10px);
+        background: var(--color-blur-bg);
+        z-index: 1000;
+        display: none;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .mobile-menu-overlay.active {
+        display: flex;
+    }
+    
+    .mobile-menu-content {
+        border-radius: 20px;
+        padding: 2rem;
+        width: 70%; 
+        height: 80px; 
+        max-width: 300px;
+        min-height: 400px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+    
+    .mobile-menu-close {
+        position: absolute;
+        top: 19%;
+        right: 4%;
+        width: 40px;
+        height: 40px;
+        background-image: url('Images/крест.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+    }
+    
+    .mobile-nav {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        align-items: center;
+        width: 100%;
+        margin-top: 2rem;
+    }
+    
+    .mobile-nav li a {
+        color: var(--color-third);
+        text-decoration: none;
+        font-size: 1.2rem;
+        transition: color 0.3s;
+    }
+    
+    .mobile-logo {
+        filter: brightness(0) invert(1);
+        transform: translateX(55%);
+    }
+
+    /* ---------- */
+
+    h1, h2 {
+        font-size: 1.7rem;
+    }
+
+    h3 {
+        font-size: 1.2rem;
+    }
+
+    .hero-subtitle {
+        padding: 1.5rem 2rem;
+        font-size: 1rem;
+        margin: 2rem auto;
+    }
+    
+    .project-number-2 {
+        padding-left: 5vw;
+        text-align: center;
+    }
+    
+    .project-title-2 {
+        padding-left: 5vw;
+        text-align: center;
+    }
+    
+    .principles-grid {
+        position: relative;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        gap: 2rem;
+        margin-top: 3em;
+    }
+    
+    .footer-content p {
+        transform: translateY(0);
+        order: 2;
+    }
+    
+    .footer-content .logo {
+        transform: translate(-8%, 30%);
+    }
+    
+    .scroll-to-top {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 5%;
+        z-index: 900;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 7vw;
+    }
+
+    .header-content {
+        width: 95%;
+    }
+    
+    .hero-subtitle {
+        padding: 1rem 1.5rem;
+        font-size: 0.9rem;
+    }
+
+    h1, h2 {
+        font-size: 1.5rem;
+    }
+
+    h3 {
+        font-size: 1.1rem;
+    }
+
+    .principles-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
