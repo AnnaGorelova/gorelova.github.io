@@ -645,7 +645,7 @@ footer {
     
     .mobile-logo {
         filter: brightness(0) invert(1);
-        transform: translateX(55%);
+        transform: translate(50%, - 20%);
     }
 
     /* ---------- */
