@@ -20,7 +20,7 @@ html, body {
 body {
     color: var(--color-primary);
     text-align: justify;
-    font-family: Geologica, sans-serif;
+    font-family: 'Geologica', sans-serif;
     line-height: 1.6;
     min-height: 100vh;
     display: flex;
