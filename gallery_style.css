@@ -352,7 +352,27 @@
     .project-card:nth-child(3) .project-image .top-images img {
         height: 120px;
     }
+
+    .project-card:nth-child(2) .project-details {
+        flex-direction: column; 
+        align-items: flex-start;
+        gap: 1.5rem; 
+    }
+    
+    .project-card:nth-child(2) .project-image {
+        order: -1; 
+        width: 100%; 
+        margin-right: 0;
+        margin-bottom: 0;
+    }
+    
+    .project-card:nth-child(2) .project-details p {
+        margin-right: 0;
+        width: 100%; 
+    }
 }
+
+/* ------------- */
 
 .modal-content.zoom-in {
     animation: zoomIn 0.3s ease;
