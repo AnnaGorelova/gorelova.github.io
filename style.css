@@ -189,10 +189,10 @@ nav a:hover{
     background-size: 300px 300px;
     background-repeat: repeat-x;
     background-position: 
-        0% 0%,
-        10% 45%,
+         0% 10%,
+        15% 25%,
         45% 15%,
-        95% 25%;
+        85% 20%;
     border-radius: 0;
     padding: 0;
 }
@@ -607,6 +607,7 @@ footer {
         min-height: 400px;
         position: relative;
         display: flex;
+        /* flex-direction: column; */
         align-items: center;
         justify-content: flex-start;
     }
@@ -633,7 +634,7 @@ footer {
         gap: 2rem;
         align-items: center;
         width: 100%;
-        margin-top: 2rem;
+        margin-top: 10rem;
     }
     
     .mobile-nav li a {
@@ -645,7 +646,9 @@ footer {
     
     .mobile-logo {
         filter: brightness(0) invert(1);
-        transform: translate(50%, -20%);
+        position: absolute; 
+        top: 19%; 
+        left: 50%;
     }
 
     /* ---------- */
@@ -727,5 +730,15 @@ footer {
     .principles-grid {
         grid-template-columns: 1fr;
         gap: 2rem;
+    }
+
+     .header-fluffy:first-child { 
+        height: 800px;
+        background-size: 180px 180px;
+        background-position: 
+            10% 4%,
+            35% 18%,
+            72% 6%,
+            92% 14%;
     }
 }
