@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Весёлый текст - Уровень 3</title>
+    <link rel="stylesheet" href="level3.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="progress-panel top">
+            <div class="progress-steps">
+                <div class="step active" data-step="1">
+                    <span class="step-number">1</span>
+                    <span class="step-label">Статика</span>
+                </div>
+                <div class="step" data-step="2">
+                    <span class="step-number">2</span>
+                    <span class="step-label">С задержкой</span>
+                </div>
+                <div class="step" data-step="3">
+                    <span class="step-number">3</span>
+                    <span class="step-label">Быстрая игра</span>
+                </div>
+            </div>
+        </div>
+
+        <header class="game-header">
+            <div class="header-left">
+                <button class="back-btn" onclick="goToLevels()">← К уровням</button>
+                <h1 class="level-title">Уровень 3: Определи часть речи</h1>
+            </div>
+            <div class="header-right">
+                <div class="game-stats">
+                    <div class="stat">
+                        <span class="stat-label">Счёт:</span>
+                        <span id="score" class="stat-value">0</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Время:</span>
+                        <span id="timer" class="stat-value">01:40</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="game-main">
+            <div id="stage-1" class="game-stage active">
+                <div class="stage-header">
+                    <h2>Этап 1: Статика</h2>
+                    <p class="stage-description">Определите, является ли слово <span id="target-part-1" class="target-part">существительным</span>. Кнопка слева - ДА, справа - НЕТ. Можно использовать клавиши вправо и влево</p>
+                    <div class="task-progress">
+                        <span>Слово <span id="current-word-1">1</span> из <span id="total-words-1">15</span></span>
+                        <span class="correct-counter">Правильно: <span id="correct-1">0</span>/<span id="answered-1">0</span></span>
+                    </div>
+                </div>
+                
+                <div class="game-area">
+                    <div class="word-display static">
+                        <div class="current-word-container">
+                            <div class="word-label">Текущее слово:</div>
+                            <div id="current-word-display-1" class="current-word">слово</div>
+                        </div>
+                    </div>
+                    
+                    <div class="decision-area">
+                        <button id="yes-btn-1" class="decision-btn yes-btn" onclick="makeDecision(true, 1)">
+                            <span class="btn-text">ДА</span>
+                        </button>
+                        <button id="no-btn-1" class="decision-btn no-btn" onclick="makeDecision(false, 1)">
+                            <span class="btn-text">НЕТ</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="stage-controls">
+                    <button id="check-stage1-btn" class="check-btn" onclick="checkStage(1)">
+                        Проверить
+                    </button>
+                    <button id="finish-level-btn" class="finish-btn" onclick="showConfirmationModal()">
+                        Завершить уровень
+                    </button>
+                    <div class="feedback" id="stage1-feedback"></div>
+                </div>
+            </div>
+
+            <div id="stage-2" class="game-stage">
+                <div class="stage-header">
+                    <h2>Этап 2: С задержкой</h2>
+                    <p class="stage-description">Определите, является ли слово <span id="target-part-2" class="target-part">существительным</span>. Они будут меняться с задержкой </p>
+                    <div class="task-progress">
+                        <span>Слово <span id="current-word-2">1</span> из <span id="total-words-2">20</span></span>
+                        <span class="correct-counter">Правильно: <span id="correct-2">0</span>/<span id="answered-2">0</span></span>
+                    </div>
+                </div>
+                
+                <div class="game-area">
+                    <div class="word-display delayed">
+                        <div class="current-word-container">
+                            <div class="word-label">Текущее слово:</div>
+                            <div id="current-word-display-2" class="current-word">слово</div>
+                        </div>
+                    </div>
+                    
+                    <div class="decision-area">
+                        <button id="yes-btn-2" class="decision-btn yes-btn" onclick="makeDecision(true, 2)" disabled>
+                            <span class="btn-text">ДА</span>
+                            </button>
+                        <button id="no-btn-2" class="decision-btn no-btn" onclick="makeDecision(false, 2)" disabled>
+                            <span class="btn-text">НЕТ</span>
+                            </button>
+                    </div>
+                </div>
+
+                <div class="stage-controls">
+                    <button id="check-stage2-btn" class="check-btn" onclick="checkStage(2)">
+                        Проверить
+                    </button>
+                    <button id="finish-level-btn-2" class="finish-btn" onclick="showConfirmationModal()">
+                        Завершить уровень
+                    </button>
+                    <div class="feedback" id="stage2-feedback"></div>
+                </div>
+            </div>
+
+            <div id="stage-3" class="game-stage">
+                <div class="stage-header">
+                    <h2>Этап 3: Быстрая игра</h2>
+                    <p class="stage-description">Определите, является ли слово <span id="target-part-3" class="target-part">существительным</span>. Они будут меняться быстрее</p>
+                    <div class="task-progress">
+                        <span>Слово <span id="current-word-3">1</span> из <span id="total-words-3">25</span></span>
+                        <span class="correct-counter">Правильно: <span id="correct-3">0</span>/<span id="answered-3">0</span></span>
+                    </div>
+                </div>
+                
+                <div class="game-area">
+                    <div class="word-display fast">
+                        <div class="current-word-container">
+                            <div class="word-label">Текущее слово:</div>
+                            <div id="current-word-display-3" class="current-word">слово</div>
+                        </div>
+                    </div>
+                    
+                    <div class="decision-area">
+                        <button id="yes-btn-3" class="decision-btn yes-btn" onclick="makeDecision(true, 3)">
+                            <span class="btn-text">ДА</span>
+                        </button>
+                        <button id="finish-level-btn-3" class="finish-btn" onclick="showConfirmationModal()">
+                            Завершить уровень
+                        </button>
+                    </div>
+                </div>
+
+                <div class="stage-controls">
+                    <button id="check-stage3-btn" class="check-btn" onclick="checkStage(3)">
+                        Проверить
+                    </button>
+                    <button id="finish-level-btn-3" class="finish-btn" onclick="finishLevel()">
+                        Завершить уровень
+                    </button>
+                    <div class="feedback" id="stage3-feedback"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div id="completion-modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Уровень пройден!</h2>
+                <button class="modal-close" onclick="closeCompletionModal()">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="results-summary">
+                    <div class="result-item">
+                        <span class="result-label">Финальный счёт:</span>
+                        <span id="final-score" class="result-value">0</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Оставшееся время:</span>
+                        <span id="time-left" class="result-value">0 сек</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Бонус за скорость:</span>
+                        <span id="speed-bonus" class="result-value">0</span>
+                    </div>
+                    <div class="result-item total">
+                        <span class="result-label">Итоговый счёт:</span>
+                        <span id="total-score" class="result-value">0</span>
+                    </div>
+                </div>
+                
+                <div class="completion-buttons">
+                    <button onclick="goToLevels()" class="completion-btn back-btn">
+                        К выбору уровней
+                    </button>
+                    <button onclick="restartLevel()" class="completion-btn restart-btn">
+                        Играть снова
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="confirmation-modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Завершение уровня</h3>
+                <button class="modal-close" onclick="closeConfirmationModal()">×</button>
+            </div>
+            <div class="modal-body">
+                <p>Вы действительно хотите завершить уровень досрочно?</p>
+                <div class="modal-buttons">
+                    <button class="confirm-btn" onclick="confirmFinishLevel()">Завершить</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="gameStorage.js"></script>
+    <script src="level3.js"></script>
+</body>
+</html>
