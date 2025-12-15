@@ -474,7 +474,7 @@ footer {
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
-    z-index: 9999;
+    z-index: 999;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -542,13 +542,13 @@ footer {
 }
 
 
-@media (min-width: 800px) {
+@media (min-width: 871px) {
     .mobile-menu-btn, .mobile-menu-overlay {
         display: none !important;
     }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 870px) {
 
     .container {
         padding: 0 6vw;
@@ -611,14 +611,13 @@ footer {
         min-height: 400px;
         position: relative;
         display: flex;
-        /* flex-direction: column; */
         align-items: center;
         justify-content: flex-start;
     }
     
     .mobile-menu-close {
         position: absolute;
-        top: 19%;
+        top: 9%;
         right: 4%;
         width: 40px;
         height: 40px;
@@ -651,11 +650,12 @@ footer {
     .mobile-logo {
         filter: brightness(0) invert(1);
         position: absolute; 
-        top: 19%; 
+        top: 9%; 
         left: 50%;
     }
+}
 
-    /* ---------- */
+@media (max-width: 800px) {
 
     h1, h2 {
         font-size: 1.7rem;
@@ -745,4 +745,165 @@ footer {
             72% 6%,
             92% 14%;
     }
+}
+
+
+
+.right-nav {
+    position: relative;
+}
+
+.tasks-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.tasks-button {
+    background: none;
+    border: none;
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color 0.3s;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-family: 'Geologica', sans-serif;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.tasks-button::after {
+    content: '▼';
+    font-size: 0.8rem;
+    margin-left: 0.3rem;
+    transition: transform 0.3s;
+}
+
+.tasks-dropdown.active .tasks-button::after {
+    transform: rotate(180deg);
+}
+
+.tasks-button:hover {
+    color: var(--color-third);
+}
+
+.dropdown-content {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    backdrop-filter: blur(10px);
+    background: var(--color-blur-bg);
+    border-radius: 15px;
+    padding: 1rem;
+    min-width: 200px;
+    display: none;
+    flex-direction: column;
+    gap: 0.5rem;
+    z-index: 1000;
+    margin-top: 2rem;
+}
+
+.tasks-dropdown.active .dropdown-content {
+    display: flex;
+}
+
+.dropdown-content a {
+    color: var(--color-third);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.dropdown-content a:hover {
+    background: rgba(255, 255, 255, 0.15);
+    color: var(--color-third);
+}
+
+.dropdown-content a.coursework {
+    background: rgba(255, 255, 255, 0.15);
+    font-weight: bold;
+    margin-top: 0.5rem;
+    padding-top: 0.7rem;
+    padding-bottom: 0.7rem;
+}
+
+@media (max-width: 870px) {
+    .tasks-dropdown {
+        display: block !important;
+    }
+    
+    .dropdown-content {
+        position: static;
+        background: transparent;
+        backdrop-filter: none;
+        box-shadow: none;
+        padding: 0;
+        margin-top: 1rem;
+    }
+    
+    .dropdown-content a {
+        color: var(--color-third);
+        text-align: center;
+    }
+    
+    .dropdown-content a.coursework {
+        background: rgba(255, 255, 255, 0.1);
+    }
+}
+
+/* Стили для мобильного выпадающего меню */
+.mobile-nav .tasks-button {
+    color: var(--color-third) !important;
+    font-size: 1.2rem;
+    width: 100%;
+    text-align: center;
+    padding: 0.5rem 0;
+    justify-content: center;
+}
+
+.mobile-nav .tasks-button:hover {
+    color: var(--color-third) !important;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.mobile-nav .tasks-button::after {
+    color: var(--color-third) !important;
+}
+
+.mobile-nav .tasks-dropdown {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mobile-nav .dropdown-content {
+    position: static !important;
+    background: transparent !important;
+    backdrop-filter: none !important;
+    box-shadow: none !important;
+    padding: 0.5rem 0 !important;
+    margin-top: 0 !important;
+    width: 100%;
+}
+
+.mobile-nav .dropdown-content a {
+    color: var(--color-third) !important;
+    font-size: 1rem;
+    padding: 0.4rem 0;
+    text-align: center;
+}
+
+.mobile-nav .dropdown-content a:hover {
+    background: rgba(255, 255, 255, 0.1) !important;
+    color: var(--color-third) !important;
+}
+
+.mobile-nav .dropdown-content a.coursework {
+    background: rgba(255, 255, 255, 0.15) !important;
+    margin-top: 0.5rem !important;
+    padding: 0.6rem 0 !important;
 }
