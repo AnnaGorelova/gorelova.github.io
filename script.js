@@ -144,3 +144,42 @@ mobileMenu.addEventListener('click', function(e) {
         document.body.style.overflow = '';
     }
 });
+
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const tasksButton = document.querySelector('.tasks-button');
+    const tasksDropdown = document.querySelector('.tasks-dropdown');
+    const mobileTasksButton = document.querySelector('.mobile-tasks-button');
+    const mobileTasksDropdown = document.querySelector('.mobile-tasks-dropdown');
+    
+    if (tasksButton && tasksDropdown) {
+        tasksButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            tasksDropdown.classList.toggle('active');
+        });
+        
+        document.addEventListener('click', function(e) {
+            if (!tasksDropdown.contains(e.target)) {
+                tasksDropdown.classList.remove('active');
+            }
+        });
+    }
+    
+    if (mobileTasksButton && mobileTasksDropdown) {
+        mobileTasksButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            mobileTasksDropdown.classList.toggle('active');
+        });
+    }
+    
+    document.querySelectorAll('.dropdown-content a, .mobile-dropdown-content a').forEach(link => {
+        link.addEventListener('click', function() {
+            tasksDropdown?.classList.remove('active');
+            mobileTasksDropdown?.classList.remove('active');
+        });
+    });
+});
