@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Весёлый текст - Уровень 2</title>
+    <link rel="stylesheet" href="css/level2.css">
+    <link rel="stylesheet" href="css/common.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="progress-panel top">
+            <div class="progress-steps">
+                <div class="step active" data-step="1">
+                    <span class="step-number">1</span>
+                    <span class="step-label">Статика</span>
+                </div>
+                <div class="step" data-step="2">
+                    <span class="step-number">2</span>
+                    <span class="step-label">Исчезновение</span>
+                </div>
+                <div class="step" data-step="3">
+                    <span class="step-number">3</span>
+                    <span class="step-label">Быстрое исчезновение</span>
+                </div>
+            </div>
+        </div>
+
+        <header class="game-header">
+            <div class="header-left">
+                <button class="back-btn" onclick="goToLevels()">← К уровням</button>
+                <h1 class="level-title">Уровень 2: пропуски в тексте</h1>
+            </div>
+            <div class="header-right">
+                <div class="game-stats">
+                    <div class="stat">
+                        <span class="stat-label">Счёт:</span>
+                        <span id="score" class="stat-value">0</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Время:</span>
+                        <span id="timer" class="stat-value">01:50</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="game-main">
+            <div id="stage-1" class="game-stage active">
+                <div class="stage-header">
+                    <h2>Этап 1: статический текст</h2>
+                    <p class="stage-description">В тексте пропущены 5 слов. Выберите слово из блока ответов, затем нажмите на цифру пропуска, чтобы заменить его. Слова не исчезают до выбора. Выбор отменить нельзя</p>
+                </div>
+                
+                <div class="text-area">
+                    <div class="text-container">
+                        <p id="main-text" class="main-text"></p>
+                    </div>
+                    
+                    <div class="answers-area">
+                        <h3 class="answers-title">Слова для вставки:</h3>
+                        <div id="answers-container" class="answers-container">
+                            
+                        </div>
+                        <p class="hint">Нажмите на слово, затем на цифру в тексте</p>
+                    </div>
+                </div>
+
+                <div class="stage-controls">
+                    <button id="check-stage1-btn" class="check-btn" onclick="checkStage1()">
+                        Проверить
+                    </button>
+                    <button id="finish-level-btn" class="finish-btn" onclick="finishLevel()">
+                        Завершить уровень
+                    </button>
+                    <div class="feedback" id="stage1-feedback"></div>
+                </div>
+            </div>
+
+            <div id="stage-2" class="game-stage">
+                <div class="stage-header">
+                    <h2>Этап 2: постепенное исчезновение</h2>
+                    <p class="stage-description">Слова из блока ответов постепенно исчезают</p>
+                </div>
+                
+                <div class="text-area">
+                    <div class="text-container">
+                        <p id="main-text-2" class="main-text"></p>
+                    </div>
+                    
+                    <div class="answers-area">
+                        <h3 class="answers-title">Слова для вставки:</h3>
+                        <div id="answers-container-2" class="answers-container disappearing">
+                            
+                        </div>
+                        <p class="hint">Слова исчезают</p>
+                    </div>
+                </div>
+
+                <div class="stage-controls">
+                    <button id="check-stage2-btn" class="check-btn" onclick="checkStage2()">
+                        Проверить
+                    </button>
+                    <button id="finish-level-btn-2" class="finish-btn" onclick="finishLevel()">
+                        Завершить уровень
+                    </button>
+                    <div class="feedback" id="stage2-feedback"></div>
+                </div>
+            </div>
+
+            <div id="stage-3" class="game-stage">
+                <div class="stage-header">
+                    <h2>Этап 3: быстрое исчезновение</h2>
+                    <p class="stage-description">Слова исчезают быстрей</p>
+                </div>
+                
+                <div class="text-area">
+                    <div class="text-container">
+                        <p id="main-text-3" class="main-text"></p>
+                    </div>
+                    
+                    <div class="answers-area">
+                        <h3 class="answers-title">Слова для вставки:</h3>
+                        <div id="answers-container-3" class="answers-container fast-disappearing">
+                            
+                        </div>
+                        <p class="hint">Слова исчезают очень быстро</p>
+                    </div>
+                </div>
+
+                <div class="stage-controls">
+                    <button id="check-stage3-btn" class="check-btn" onclick="checkStage3()">
+                        Проверить
+                    </button>
+                    <button id="finish-level-btn-3" class="finish-btn" onclick="finishLevel()">
+                        Завершить уровень
+                    </button>
+                    <div class="feedback" id="stage3-feedback"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div id="completion-modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Уровень пройден!</h2>
+                <button class="modal-close" onclick="closeCompletionModal()">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="results-summary">
+                    <div class="result-item">
+                        <span class="result-label">Финальный счёт:</span>
+                        <span id="final-score" class="result-value">0</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Оставшееся время:</span>
+                        <span id="time-left" class="result-value">0 сек</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Бонус за скорость:</span>
+                        <span id="speed-bonus" class="result-value">0</span>
+                    </div>
+                    <div class="result-item total">
+                        <span class="result-label">Итоговый счёт:</span>
+                        <span id="total-score" class="result-value">0</span>
+                    </div>
+                </div>
+                
+                <div class="completion-buttons">
+                    <button onclick="goToLevels()" class="completion-btn back-btn">
+                        К выбору уровней
+                    </button>
+                    <button onclick="restartLevel()" class="completion-btn restart-btn">
+                        Играть снова
+                    </button>
+                    <button onclick="goToLevel(3)" class="completion-btn next-btn">
+                        Следующий уровень →
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/words.js"></script>
+    <script src="js/gameStorage.js"></script>
+    <script src="js/level2.js"></script>
+</body>
+</html>
